@@ -124,16 +124,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles/')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_TMP = os.path.join(BASE_DIR, 'static')
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-os.makedirs(STATIC_TMP, exist_ok=True)
-os.makedirs(STATIC_ROOT, exist_ok=True)
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_TMP = os.path.join(BASE_DIR, 'static')
+# STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-os.path.join(BASE_DIR, 'static'),
+# os.makedirs(STATIC_TMP, exist_ok=True)
+# os.makedirs(STATIC_ROOT, exist_ok=True)
+
+# STATICFILES_DIRS = (
+# os.path.join(BASE_DIR, 'static'),
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
